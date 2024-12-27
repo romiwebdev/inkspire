@@ -1,1 +1,6 @@
 /vendor
+.git
+.env
+node_modules
+storage/*
+tests/*
