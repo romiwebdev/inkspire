@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
-    use HasFactory;
+    // use HasFactory;
 
     protected $fillable = ['title', 'content', 'category_id', 'author_id', 'views'];
     protected $dates = ['created_at', 'updated_at'];

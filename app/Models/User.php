@@ -8,8 +8,8 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable,
-    HasFactory;
+    use Notifiable;
+    // HasFactory;
 
     // Izinkan atribut ini untuk pengisian massal
     protected $fillable = [
