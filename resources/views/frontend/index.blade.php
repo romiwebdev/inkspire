@@ -4,7 +4,7 @@
 <div class="bg-gray-900 min-h-screen py-8">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         {{-- Header with Animation --}}
-        <h1 class="text-4xl font-bold text-white mb-12 text-center flex items-center justify-center space-x-4 animate-fade-in">
+        <h1 class="text-4xl font-bold text-white mb-4 text-center flex items-center justify-center space-x-4 animate-fade-in">
             <svg class="w-12 h-12 text-blue-500 transform hover:rotate-180 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.071 0l-.344.344a2.5 2.5 0 01-3.536 0l-.344-.344z"></path>
             </svg>
@@ -99,7 +99,7 @@
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mx-4 sm:mx-0">
     @foreach($popularPosts as $key => $post)
-    <div class="post-card relative bg-gradient-to-br from-gray-800 {{ $key == 0 ? 'to-red-900' : ($key == 1 ? 'to-blue-900' : ($key == 2 ? 'to-green-900' : 'to-purple-900')) }} rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+    <div class="post-card relative bg-gradient-to-br from-gray-800 {{ $key == 0 ? 'to-green-900' : ($key == 1 ? 'to-purple-900' : ($key == 2 ? 'to-blue-900' : 'to-red-900')) }} rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
         <div class="p-6 flex flex-col h-full">
                         {{-- Header --}}
                         <div class="flex justify-between items-start mb-4">
@@ -218,8 +218,8 @@
         @endforeach
     </div>
 
-<script>
-    window.addEventListener('load', function () {
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
         adjustCarouselHeight();
     });
 
@@ -228,24 +228,32 @@
     });
 
     function adjustCarouselHeight() {
-        var carouselItems = document.querySelectorAll('#admin-posts-carousel .post-card');
-        var maxHeight = 0;
+        // Ambil semua elemen post-card dalam carousel
+        const carouselItems = document.querySelectorAll('#admin-posts-carousel .post-card');
+        let maxHeight = 0;
 
-        // Menemukan tinggi terbesar di antara semua card
-        carouselItems.forEach(function(item) {
-            var itemHeight = item.offsetHeight;
+        // Loop melalui setiap item untuk mendapatkan tinggi terbesar
+        carouselItems.forEach(function (item) {
+            item.style.height = 'auto'; // Reset dulu agar dapat tinggi asli
+            const itemHeight = item.offsetHeight;
             if (itemHeight > maxHeight) {
                 maxHeight = itemHeight;
             }
         });
 
-        // Mengatur tinggi carousel berdasarkan tinggi item terbesar
-        var carouselWrapper = document.querySelector('#admin-posts-carousel .relative');
+        // Terapkan tinggi terbesar ke semua item
+        carouselItems.forEach(function (item) {
+            item.style.height = maxHeight + 'px';
+        });
+
+        // Atur tinggi wrapper carousel
+        const carouselWrapper = document.querySelector('#admin-posts-carousel .relative');
         if (carouselWrapper) {
             carouselWrapper.style.height = maxHeight + 'px';
         }
     }
 </script>
+
 
 
     <!-- Slider Indicators -->
