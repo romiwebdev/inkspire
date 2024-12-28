@@ -1,9 +1,10 @@
+/* Flowbite */
+@import 'flowbite';
+@import "aos/dist/aos.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Flowbite */
-@import 'flowbite';
 /* Custom global styles */
 @layer base {
     body {
@@ -18,4 +19,3 @@
     }
 }
 
-@import "aos/dist/aos.css";

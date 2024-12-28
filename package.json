@@ -21,6 +21,7 @@
         "@heroicons/vue": "^2.2.0",
         "alpinejs": "^3.14.8",
         "aos": "^2.3.4",
-        "flowbite": "^2.5.2"
+        "flowbite": "^2.5.2",
+        "postcss-import": "^16.1.0"
     }
 }
