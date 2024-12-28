@@ -3,7 +3,8 @@
     "framework": null,
     "functions": {
         "api/index.php": {
-            "runtime": "vercel-php@0.7.3"
+          "runtime": "vercel-php@0.7.3",
+          "excludeFiles": "{node_modules,.next,.git,storage,tests,vendor/bin,vendor/composer/installed.json}"
         }
     },
      
